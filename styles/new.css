@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "FreeSans";
+    src: url("../fonts/FreeSans-LrmZ.ttf");
+}
+
+@font-face {
+    font-family: "TimeBurner";
+    src: url("../fonts/Timeburner-xJB8.ttf");
+}
+
+body {
+    background: url("../images/background.jpg") center center/cover no-repeat;
+    color: white;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    align-items: center;
+    width: 85vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: FreeSans;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+}
+
+header i {
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding-right: 10px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#logo {
+    width: 15vw;
+    max-width: 120px;
+    margin-right: 10px;
+}
+.content-title {
+    font-family: FreeSans;
+    text-align: center;
+    margin: 3rem 0;
+    font-size: 2.5rem;
+    color: #f2f2f2;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  header {
+      padding-top: 30px;
+      padding-bottom: 20px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+}
+
+  .logo-title {
+      flex-direction: column;
+      gap: 8px;
+}
+
+  #logo {
+      width: 20vw;
+      margin-left: 0;
+}
+
+  .content-title {
+      font-size: 2rem;
+}
+
+
+}
+
+@media (max-width: 480px) {
+  header {
+      width: 95vw;
+}
+
+  .content-title {
+      font-size: 1.8rem;
+      margin: 2rem 0;
+}
+
+  #logo {
+      width: 30vw;
+      max-width: 80px;
+      margin: 0;
+}
+
+
+}
+
