@@ -12,6 +12,12 @@
     font-family: "TimeBurner";
     src: url("../fonts/Timeburner-xJB8.ttf");
 }
+:root{
+
+    overflow: hidden;
+    cursor: none;
+    
+}
 
 body {
     background: url("../images/background.jpg") center center/cover no-repeat;
@@ -41,10 +47,12 @@ header {
 header a {
     text-decoration: none;
     color: white;
+    cursor: none;
+
 }
 
 header i {
-    cursor: pointer;
+    cursor: none;
     font-size: 2.5rem;
     padding-right: 10px;
 }
@@ -53,13 +61,15 @@ header i {
     display: flex;
     align-items: center;
     gap: 10px;
-    cursor: pointer;
+    cursor: none;
+ 
 }
 
 #logo {
     width: 15vw;
     max-width: 120px;
     margin-right: 10px;
+    cursor: none;
 }
 .content-title {
     font-family: FreeSans;
@@ -69,6 +79,28 @@ header i {
     color: #f2f2f2;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+
+select{
+    text-align: center;
+    align-self: center;
+    width:fit-content;
+    height: 45px;
+    outline: none;
+    border: none;
+    border-radius: 7px 0 7px 0;
+    background: rgba(165, 249, 255, 0.397);
+    box-shadow: currentColor  2px 2px 1px 0;
+    cursor: none;
+    pointer-events: all;
+}
+#lock{
+    position:absolute;
+    width:70px;
+    height: 70px;
+    display: none;
+   
 }
 
 @media (max-width: 768px) {

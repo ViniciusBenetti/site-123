@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <img src="images/lock.svg" alt="lock" id="lock">
     <header>
         <a href="#"><div class="logo-title"><img src="images/logo.svg" alt="logo" id="logo">
         <h1>DEPATRI</h1></div></a>
     </header>
     <div class="content-title">
-        <h2>Dicas da depatri</h2>
+        <h2>Dicas do depatri</h2>
     </div>
 
-    <select name="" id="">
+    <select name="select" id="select" >
+        <option value="escolha" selected disabled>--ESCOLHA UMA OPÇÃO--</option>
         <optgroup label="conhecimento">Conhecimento</optgroup>
         <option value="">golpes mais comuns</option>
         <option value="">dicas e softwares</option>
@@ -30,10 +32,26 @@
         <option value="www.archive.org">wayback machine</option>
         <option value="www.viewdns.info">viewDNS</option>
         <optgroup label="documentos">documentos</optgroup>
-        <option value="">FAX</option>
+        <option value="">fax</option>
     </select>
 
 
-    
+    <script>
+            let lock = document.querySelector("#lock")
+
+            if(lock){
+                document.onmousemove = (e) => {
+                    lock.style.display = "flex"
+                    const cursorX = e.clientX - 25
+                    const cursorY = e.clientY - 25
+                    lock.style.transform = `translate(${cursorX}px,${cursorY}px)`;
+                    
+
+
+                }
+
+        
+        }
+    </script>
 </body>
 </html>
