@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <img src="images/lock.svg" alt="lock" id="lock">
+    <img src="images/cursor.svg"  alt="cursor" id="cursor" style="position:absolute;display: none;pointer-events: none;width: 300px;height: 300px;">
     <header>
         <a href="#"><div class="logo-title"><img src="images/logo.svg" alt="logo" id="logo">
         <h1>DEPATRI</h1></div></a>
@@ -27,7 +27,7 @@
         <option value="https://docs.google.com/presentation/d/e/2PACX-1vRqgQLi9oW5ZUVD5Mgn1_Tjd3ZqKC1uRpSxfxKa7hI7c-Ezx1aRIUh_DhpfpxzBPG4XLIiFp5_LxlU6/pub?start=false&loop=true&delayms=5000">prevenção</option>
         <optgroup label="melhores ferramentas">melhores ferramentas</optgroup>
         <option value="www.whois.com">whois</option>
-        <option value="www.haveibeenpwned.com">meus dados foram vazados?</option>
+        <option value="www.haveibeenpwned.com">consultar dados vazados</option>
         <option value="www.virustotal.com">virusTotal</option>
         <option value="www.archive.org">wayback machine</option>
         <option value="www.viewdns.info">viewDNS</option>
@@ -37,16 +37,28 @@
 
 
     <script>
-            let lock = document.querySelector("#lock")
+            let cursor = document.querySelector("#cursor");
+            let select = document.querySelector("select");
 
-            if(lock){
+            function handleSelectDown(){ 
+            
+            cursor.style.transform += `scale(0.6)`
+                
+                
+            }
+            function handleMouseMove(e){
+
+       
+                    cursor.style.display = "flex"
+                    const cursorX = e.clientX - (cursor.style.width.split("p")[0]/2)
+                    const cursorY = e.clientY - (cursor.style.width.split("p")[0]/2)
+                    cursor.style.transform = `translate(${cursorX}px,${cursorY}px) scale(1)`;
+            }
+
+            if(cursor){
+                select.onmousedown = handleSelectDown()
                 document.onmousemove = (e) => {
-                    lock.style.display = "flex"
-                    const cursorX = e.clientX - 25
-                    const cursorY = e.clientY - 25
-                    lock.style.transform = `translate(${cursorX}px,${cursorY}px)`;
-                    
-
+                    handleMouseMove(e)
 
                 }
 

@@ -82,27 +82,35 @@ header i {
 }
 
 
-select{
+select {
     text-align: center;
     align-self: center;
-    width:fit-content;
-    height: 45px;
     outline: none;
     border: none;
     border-radius: 7px 0 7px 0;
-    background: rgba(165, 249, 255, 0.397);
-    box-shadow: currentColor  2px 2px 1px 0;
     cursor: none;
     pointer-events: all;
-}
-#lock{
-    position:absolute;
-    width:70px;
-    height: 70px;
-    display: none;
-   
+    background: url("../images/barriers.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 600px;
+    width: fit-content;
+    height: 60px;
+    background-clip: content-box;
+    transition: all 0.3s ease-in-out;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.4rem;
+    padding: 0 20px;
 }
 
+select::-ms-expand {
+    display: none; 
+}
+
+@keyframes cursorClicked{0%{transform: translate(800px,279px) scale(1.1);}50%{transform: translate(800px,279px) scale(1.1);}100%{transform: translate(800px,279px) scale(1.1);}}
 @media (max-width: 768px) {
   header {
       padding-top: 30px;
@@ -125,7 +133,6 @@ select{
   .content-title {
       font-size: 2rem;
 }
-
 
 }
 
