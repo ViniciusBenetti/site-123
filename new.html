@@ -19,7 +19,7 @@
         <h2>Dicas do depatri</h2>
     </div>
 
-    <select name="select" id="select" >
+    <select name="select" id="select">
         <option value="escolha" selected disabled>--ESCOLHA UMA OPÇÃO--</option>
         <optgroup label="conhecimento">Conhecimento</optgroup>
         <option value="">golpes mais comuns</option>
@@ -37,32 +37,34 @@
 
 
     <script>
-            let cursor = document.querySelector("#cursor");
-            let select = document.querySelector("select");
+        let cursorIMG = document.querySelector("#cursor");
+        let select = document.querySelector("select");
 
-            function handleSelectDown(){ 
-            
-            cursor.style.transform += `scale(0.6)`
-                
-                
-            }
-            function handleMouseMove(e){
+        function handleSelectDown() { 
+            cursorIMG.style.transform = 'scale(0.5)';
+        }
 
-       
-                    cursor.style.display = "flex"
-                    const cursorX = e.clientX - (cursor.style.width.split("p")[0]/2)
-                    const cursorY = e.clientY - (cursor.style.width.split("p")[0]/2)
-                    cursor.style.transform = `translate(${cursorX}px,${cursorY}px) scale(1)`;
-            }
+        function handleMouseUp() {
+            cursorIMG.style.transform = 'scale(1)';
+        }
 
-            if(cursor){
-                select.onmousedown = handleSelectDown()
-                document.onmousemove = (e) => {
-                    handleMouseMove(e)
+        function handleMouseMove(e) {
+            cursorIMG.style.display = "flex";
+            const cursorX = e.clientX - (cursorIMG.offsetWidth / 2);
+            const cursorY = e.clientY - (cursorIMG.offsetHeight / 2);
+            cursorIMG.style.left = `${cursorX}px`;
+            cursorIMG.style.top = `${cursorY}px`;
+        }
 
-                }
+        if (cursorIMG) {
+            select.onmousedown = handleSelectDown;
+            select.onmouseup = handleMouseUp;
 
-        
+            document.onmousemove = (e) => {
+                handleMouseMove(e);
+            };
+
+            select.onmouseleave = handleMouseUp;
         }
     </script>
 </body>

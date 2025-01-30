@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+*{
+    user-select: none;
 }
 @font-face {
     font-family: "FreeSans";
@@ -104,6 +108,7 @@ select {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-size: 1.4rem;
     padding: 0 20px;
+
 }
 
 select::-ms-expand {
