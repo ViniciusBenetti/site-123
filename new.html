@@ -59,10 +59,15 @@
         if (cursorIMG) {
             select.onmousedown = handleSelectDown;
             select.onmouseup = handleMouseUp;
+            select.ontouchstart = handleSelectDown;
+            select.ontouchend = handleMouseUp;
 
             document.onmousemove = (e) => {
                 handleMouseMove(e);
             };
+            document.ontouchmove = (e) =>{
+                handleMouseMove(e)
+            }
 
             select.onmouseleave = handleMouseUp;
         }
