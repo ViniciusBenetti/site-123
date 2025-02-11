@@ -19,21 +19,25 @@
         <h2>Dicas do depatri</h2>
     </div>
 
+
+
+    <div class="custom-select">
     <select name="select" id="select">
-        <option value="escolha" selected disabled>--ESCOLHA UMA OPÇÃO--</option>
+        <option value="escolha" selected disabled>ESCOLHA UMA OPÇÃO</option>
         <optgroup label="conhecimento">Conhecimento</optgroup>
-        <option value="">golpes mais comuns</option>
-        <option value="">dicas e softwares</option>
+        <option value="golpes-comuns">golpes mais comuns</option>
+        <option value="dicas-e-softwares">dicas e softwares</option>
         <option value="https://docs.google.com/presentation/d/e/2PACX-1vRqgQLi9oW5ZUVD5Mgn1_Tjd3ZqKC1uRpSxfxKa7hI7c-Ezx1aRIUh_DhpfpxzBPG4XLIiFp5_LxlU6/pub?start=false&loop=true&delayms=5000">prevenção</option>
         <optgroup label="melhores ferramentas">melhores ferramentas</optgroup>
-        <option value="www.whois.com">whois</option>
-        <option value="www.haveibeenpwned.com">consultar dados vazados</option>
-        <option value="www.virustotal.com">virusTotal</option>
-        <option value="www.archive.org">wayback machine</option>
-        <option value="www.viewdns.info">viewDNS</option>
+        <option value="https://whois.com">whois</option>
+        <option value="https://haveibeenpwned.com">consultar dados vazados</option>
+        <option value="https://virustotal.com">virusTotal</option>
+        <option value="https://archive.org">wayback machine</option>
+        <option value="https://viewdns.info">viewDNS</option>
         <optgroup label="documentos">documentos</optgroup>
         <option value="">fax</option>
     </select>
+    </div>
 
 
     <script>
@@ -42,8 +46,30 @@
 
         function handleSelectDown() { 
             cursorIMG.style.transform = 'scale(0.5)';
-        }
 
+        }
+        function selectChanged() {
+        const selectedValue = select.options[select.selectedIndex].value;
+
+        if(selectedValue.includes("https://")){
+            window.open(selectedValue, "_blank");
+        }
+    
+        };
+        function animateSelect(){
+            select.style.backgroundSize = "0px 600px";
+    
+            setTimeout(() => {
+                select.style.transition = "background-size 0.3s ease-in-out";
+                select.style.backgroundSize = "600px 600px";
+            }, 200);
+
+            setTimeout(()=>{
+                select.style.transition = "none";
+            },750)
+
+        }
+    
         function handleMouseUp() {
             cursorIMG.style.transform = 'scale(1)';
         }
@@ -59,13 +85,14 @@
         if (cursorIMG) {
             select.onmousedown = handleSelectDown;
             select.onmouseup = handleMouseUp;
-
+            select.onchange = selectChanged;
+            select.onclick = animateSelect;
+            
+            
 
             document.onmousemove = (e) => {
                 handleMouseMove(e);
             };
-    
-
             select.onmouseleave = handleMouseUp;
         }
     </script>
