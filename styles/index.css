@@ -73,11 +73,12 @@ header i {
 .content-options {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
     flex-wrap: wrap;
     margin: 0 auto;
     padding-bottom: 3rem;
-    max-width: 85vw;
+    max-width: 65vw;
 }
 .content-options div {
     background: linear-gradient(135deg, #4a4e69, #22223b); 

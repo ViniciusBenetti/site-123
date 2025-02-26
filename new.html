@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <img src="images/cursor.svg"  alt="cursor" id="cursor" style="position:absolute;display: none;pointer-events: none;width: 300px;height: 300px;">
+    <img src="images/cursor2.svg"  alt="cursor" id="cursor" style="position:absolute;display: none;pointer-events: none;width: 300px;height: 300px;">
     <header>
         <a href="#"><div class="logo-title"><img src="images/logo.svg" alt="logo" id="logo">
         <h1>DEPATRI</h1></div></a>
@@ -24,25 +24,41 @@
     <div class="custom-select">
     <select name="select" id="select">
         <option value="escolha" selected disabled>ESCOLHA UMA OPÇÃO</option>
-        <optgroup label="conhecimento">Conhecimento</optgroup>
+        <optgroup label="conhecimento"></optgroup>
         <option value="golpes-comuns">golpes mais comuns</option>
         <option value="dicas-e-softwares">dicas e softwares</option>
         <option value="https://docs.google.com/presentation/d/e/2PACX-1vRqgQLi9oW5ZUVD5Mgn1_Tjd3ZqKC1uRpSxfxKa7hI7c-Ezx1aRIUh_DhpfpxzBPG4XLIiFp5_LxlU6/pub?start=false&loop=true&delayms=5000">prevenção</option>
-        <optgroup label="melhores ferramentas">melhores ferramentas</optgroup>
+        <optgroup label="utilitários"></optgroup>
         <option value="https://whois.com">whois</option>
         <option value="https://haveibeenpwned.com">consultar dados vazados</option>
         <option value="https://virustotal.com">virusTotal</option>
         <option value="https://archive.org">wayback machine</option>
         <option value="https://viewdns.info">viewDNS</option>
-        <optgroup label="documentos">documentos</optgroup>
+        <optgroup label="documentos"></optgroup>
         <option value="">fax</option>
     </select>
     </div>
+    
+    <section>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRIWmQx1EigWz-gFn50ZVkIqvHJBYVpu5TgsS1xXQKaywwaW5hTQRLzNqCJRZP0iw04TjHq_NCeKKAn/pub?start=false&loop=true&delayms=5000" class="golpes">
+            Golpe do PIX
+        </a>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vRXo8gIPqSFeIFNnvJtKr2EhBW2fpdLEDeMErPhB6EDoxj9n-K9xMcHyymEeugu5W0wrod2p_R7B6Fh/pub?start=false&loop=true&delayms=5000" class="golpes">
+            Boleto e Código QR falsos
+        </a>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQhk2biwsS_Jbb3x8rqpRJcKamsHmJ8jqWDiRsZp26fLyudoYQ1Ox-obSWTgsn-9gzU_LzhMNVVQOaU/pub?start=false&loop=true&delayms=5000" class="golpes">
+            Site Falso
+        </a>
+        <a href="https://docs.google.com/presentation/d/e/2PACX-1vQGwo_5eNPEJnEsHKoIdS9zsVHfonpF2lvYj8B3gXq5J34TUqcooj-m9LNAA-wR-awcF531YiVsH24O/pub?start=false&loop=true&delayms=5000" class="golpes">
+            Falso Intermediário
+        </a>
+    </section>
 
 
     <script>
         let cursorIMG = document.querySelector("#cursor");
         let select = document.querySelector("select");
+        let golpescomuns = document.querySelector("section")
 
         function handleSelectDown() { 
             cursorIMG.style.transform = 'scale(0.5)';
@@ -51,8 +67,14 @@
         function selectChanged() {
         const selectedValue = select.options[select.selectedIndex].value;
 
-        if(selectedValue.includes("https://")){
+
+        if(selectedValue == "golpes-comuns"){
+            golpescomuns.style.display = "flex"
+        }else{
+            golpescomuns.style.display = "none"
+            if(selectedValue.includes("https://")){
             window.open(selectedValue, "_blank");
+        }
         }
     
         };
