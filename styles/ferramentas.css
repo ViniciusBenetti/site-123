@@ -167,6 +167,6 @@ header i {
 }
 }
 @keyframes openScroll{
-    0%{width:0vw;height:0vh;}
-    100%{width:75vw;height: 320px;}
+    0%{width:0vw;height:0vh}
+    100%{width:75vw;height: 400px;}
 }
